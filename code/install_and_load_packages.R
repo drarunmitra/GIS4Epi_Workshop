@@ -18,8 +18,6 @@ packages <- c(
 # Install all the packages
 packages |> pak::pak()
 
-# Load all the packages
-packages |> map(library, character.only = TRUE)
 
 # Remove the `packages` object
 # rm('packages')
