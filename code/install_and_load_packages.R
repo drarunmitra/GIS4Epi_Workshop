@@ -1,36 +1,19 @@
 # Script to Load and Install the Required Packages
 
-# Load Tidyverse
-library('tidyverse')
+# Install the `pak` package
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
+}
 
-# Create the list of packages to install and load
 packages <- c(
-  # General Packages
-  "here", # for file paths and management
-  "tidyverse", # meta package for tidy data management and preparation
-  "epitrix", # for epidemiological data
-  "janitor", # for data cleaning
-  "HistData", # for historical data *we are using John Snow Data for this workshop
-  "gtsummary", # for summary tables
-  "RColorBrewer", # for color palettes
-  
-  # Spatial Packages  
-  "sf", # for vector data (simple features)
-  "raster", # for raster data
-  "terra", # for raster data *alternative to raster package (faster)
-  "tidyterra", # tidy operations for raster data
-  "stars", # for plotting spatiotemporal data
-  
-  "gstat", # for geostatistical analysis
-  "rgeoda", # for spatial analysis
-  
-  "tidygeocoder", # for geocoding addresses inti lat/long
-  "osrm", # for routing and isochrones *uses Open Street Map
-  
-  "ggspatial", # for spatial data visualization
-  "patchwork", # for arranging ggplots
-  "leaflet" # for interactive maps
-  )
+"tidyverse",# for data manipulation
+"sf",# for simple feature operations
+"here",# for managing files
+"patchwork",# for plot organisation
+"raster",# Load the 'raster' package for handling raster data
+"exactextractr"# Load the 'exactextractr' package for extracting raster data
+)
+
 
 # Install all the packages
 packages |> pak::pak()
